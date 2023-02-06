@@ -1,11 +1,4 @@
-function paintBox(div)
-{
-    div.classList.add('painted');
-}
-
 const container = document.querySelector("#container");
-
-
 
 for(i = 1; i <= 256; i++)
 {
