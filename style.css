@@ -1,20 +1,22 @@
 .box{
-    border: 2px black solid;
+    border: 1px solid;
+    border-color:  rgba(0, 0, 0, 0.25);
 }
 
 #container{
     display: grid;
-    gap: 3px;
-    height: 1000px;
-    width: 1000px;
+    height: 750px;
+    width: 750px;
 }
 
 body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .painted{
     background-color: black;
+    border-color: black;
 }
