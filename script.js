@@ -1,16 +1,52 @@
 const container = document.querySelector("#container");
 
-let boxCount = 4096;
-let columnCount = Math.sqrt(boxCount);
+let mouseDown = false;
+document.addEventListener('mousedown', e =>{
+    mouseDown = true;
+});
+document.addEventListener('mouseup', e =>{
+    mouseDown = false;
+});
 
-container.style['grid-template-columns'] = `repeat(${columnCount}, 1fr)`;
-for(i = 1; i <= boxCount; i++)
+let columnCount = 16;
+MakeContainer();
+
+function MakeContainer()
+{   
+    let boxes = document.querySelectorAll('.box');
+
+    boxes.forEach(box =>
+        {
+            box.remove();
+        });
+    container.style['grid-template-columns'] = `repeat(${columnCount}, 1fr)`;
+    for(i = 1; i <= columnCount * columnCount; i++)
+    {
+        let div = document.createElement('div');
+        div.setAttribute('id', i);
+        div.classList.add('box');
+        div.addEventListener('mouseover', e =>{
+            Paint(e);
+        });
+        div.addEventListener('mousedown', e =>{
+            Paint(e);
+        });
+        container.appendChild(div);
+    }
+}
+
+function Paint(e)
 {
-    let div = document.createElement('div');
-    div.setAttribute('id', i);
-    div.classList.add('box');
-    div.addEventListener('mouseover', e =>{
+    if((mouseDown && e.type === 'mouseover') || e.type === 'mousedown')
+    {
         e.target.classList.add('painted');
-    });
-    container.appendChild(div);
+    }
+    
+}
+
+function ChangeSliderValue(value)
+{
+    document.getElementById("sliderValue").textContent=value+"x"+value;
+    columnCount = value;
+    MakeContainer();
 }

@@ -5,8 +5,8 @@
 
 #container{
     display: grid;
-    height: 750px;
-    width: 750px;
+    height: 650px;
+    width: 650px;
 }
 
 body{
@@ -19,4 +19,36 @@ body{
 .painted{
     background-color: black;
     border-color: black;
+}
+
+.slider{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 500px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    margin-bottom: 55px;
+    opacity: 0.5;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.slider:hover{
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    background: rgba(0,255,0,1);
+    box-shadow: -400px 0 0 400px rgba(0,255,0,1);
+}
+
+.sliderValue{
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
 }
