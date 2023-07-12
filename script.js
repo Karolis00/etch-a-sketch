@@ -44,9 +44,10 @@ function Paint(e)
     
 }
 
-function ChangeSliderValue(value)
+function ChangeSliderValue(slider, check)
 {
-    document.getElementById("sliderValue").textContent=value+"x"+value;
-    columnCount = value;
-    MakeContainer();
+    document.getElementById("sliderValue").textContent=slider.value+"x"+slider.value;
+    columnCount = slider.value;
+    if(check)
+        MakeContainer();
 }
